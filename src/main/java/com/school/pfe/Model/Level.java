@@ -3,8 +3,10 @@ package com.school.pfe.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Normalized;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,5 +19,8 @@ public class Level extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "faculty_id")
     private Faculty faculty;
+
+    @OneToMany(mappedBy = "level")
+    private List<Class> classes;
 
 }
