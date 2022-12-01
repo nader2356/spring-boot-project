@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
@@ -17,17 +18,14 @@ import lombok.Data;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@Table(name="Professeur")
-public class Professeur {
-	@Id
-    @GeneratedValue
-    private Long idProf ;
-	private String Nom;
-	private String Prenom;
-	private String Adresse;
+@Table(name="Teacher")
+public class Teacher extends AbstractEntity{
+	private String FirsName;
+	private String LastName;
+	private String Address;
 	private String Email;
 	private String Telephone;
-	@ManyToMany (mappedBy = "Professeurs" ,fetch = FetchType.LAZY)
-	private Set<Planning> Plannings;
+	//@ManyToMany (mappedBy = "Teachers" ,fetch = FetchType.LAZY)
+	//private Set<Planning> Plannings;
 	
 }
