@@ -23,19 +23,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name ="school")
 
-public class School {
-	@Id
-    @GeneratedValue
-    private Long idSchool ;
-	@Column(name = "nom")
-	private String nom;
-	@Column(name = "adresse")
-	private String adresse;
+public class School extends AbstractEntity {
+	     
+	@Column(name = "name")
+	private String name;
+	@Column(name = "address")
+	private String address;
 	
 	@OneToMany(mappedBy="school")
 	@JsonIgnore
-    private List <Faculty> faculty;
-	
+    private List <Faculty> faculties;
 	@OneToMany(mappedBy="school")
 	@JsonIgnore
     private List <Salle> salles;
