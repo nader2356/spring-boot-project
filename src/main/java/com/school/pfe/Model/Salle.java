@@ -19,24 +19,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name ="salle")
-public class Salle  {
+public class Salle extends AbstractEntity {
 	@Id
 	@GeneratedValue
-	private Long idSalle;
+	
 	@Column(name = "numSalle")
 	private String numSalle;
 	@Column(name = "numBloc")
 	private String bloc;
-	@ManyToMany(mappedBy ="salles",fetch = FetchType.LAZY)
-	private Set<Planning> plannings;
+	//@ManyToMany(mappedBy ="salles",fetch = FetchType.LAZY)
+	//private Set<Planning> plannings;
 	@ManyToOne
-	@JoinColumn(name = "ecole_Id")
+	@JoinColumn(name = "faculty_Id")
 	@JsonIgnore
-	private Ecole ecole;
+	private Faculty faculty;
 /*	*/
 }
