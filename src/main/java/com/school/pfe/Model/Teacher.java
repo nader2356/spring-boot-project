@@ -20,11 +20,11 @@ import lombok.Data;
 
 @Table(name="Teacher")
 public class Teacher extends AbstractEntity{
-	private String FirsName;
-	private String LastName;
-	private String Address;
-	private String Email;
-	private String Telephone;
+	private String firsName;
+	private String lastName;
+	private String address;
+	private String email;
+	private String telephone;
 	//@ManyToMany (mappedBy = "Teachers" ,fetch = FetchType.LAZY)
 	//private Set<Planning> Plannings;
 	
