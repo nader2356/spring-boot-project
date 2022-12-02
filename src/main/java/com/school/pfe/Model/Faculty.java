@@ -1,5 +1,6 @@
 package com.school.pfe.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,5 +27,6 @@ public class Faculty extends AbstractEntity {
     private School school;
 
     @OneToMany(mappedBy = "faculty")
+    @JsonIgnore
     private List<Level> levels;
 }
