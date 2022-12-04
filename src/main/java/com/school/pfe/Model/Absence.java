@@ -13,24 +13,24 @@ import java.util.Date;
 @Entity
 public class Absence extends AbstractEntity {
 
-    @Column(name = "jourAbsence")
-    private String jourAbsence;
+    @Column(name = "jourabsence")
+    private String jourabsence;
 
-    @Column(name = "DateDebut")
-    private Date dateDebut;
+    @Column(name = "datedebut")
+    private Date datedebut;
 
-    @Column(name = "DateFin")
+    @Column(name = "dateFin")
     private Date dateFin;
 
-    @Column(name = "Type")
+    @Column(name = "type")
     private String type;
     @ManyToOne
-    @JoinColumn(name = "matiere_Id")
+    @JoinColumn(name = "matiere_id")
     @JsonIgnore
     private Matiere matiere;
 
     @ManyToOne
-    @JoinColumn(name = "eleve_Id")
+    @JoinColumn(name = "eleve_id")
     @JsonIgnore
     private Eleve eleve;
 

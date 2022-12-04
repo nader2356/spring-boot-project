@@ -4,6 +4,9 @@ public enum ErrorCodes {
 
     FACULTY_NOT_FOUND(1000),
     FACULTY_NOT_VALID(1001),
+    ABSENCE_NOT_FOUND(2000),
+    ABSENCE_NOT_VALID(2001),
+
     ;
     private int code;
 
