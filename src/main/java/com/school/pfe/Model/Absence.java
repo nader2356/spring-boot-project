@@ -24,7 +24,8 @@ public class Absence extends AbstractEntity {
 
     @Column(name = "Type")
     private String type;
-    @ManyToOne
+    
+    /*@ManyToOne
     @JoinColumn(name = "matiere_Id")
     @JsonIgnore
     private Matiere matiere;
@@ -32,6 +33,6 @@ public class Absence extends AbstractEntity {
     @ManyToOne
     @JoinColumn(name = "eleve_Id")
     @JsonIgnore
-    private Eleve eleve;
+    private Eleve eleve;*/
 
 }

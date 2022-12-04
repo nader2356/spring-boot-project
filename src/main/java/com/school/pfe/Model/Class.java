@@ -31,7 +31,7 @@ public class Class  extends AbstractEntity
     @ManyToOne
     private Level level;
 
-    @OneToOne
-    private Planning planning;
+    /*@OneToOne
+    private Planning planning;*/
 
 }
