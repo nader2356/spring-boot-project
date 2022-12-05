@@ -1,13 +1,16 @@
 package com.school.pfe.Model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Normalized;
+import lombok.experimental.SuperBuilder;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Data
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
