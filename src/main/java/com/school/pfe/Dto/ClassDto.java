@@ -1,0 +1,54 @@
+package com.school.pfe.Dto;
+
+import com.school.pfe.Model.Class;
+import com.school.pfe.Model.SchoolYear;
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ClassDto {
+    private Long id;
+
+    private  String nameClass;
+
+    private  String labelClass;
+
+    private  String schoolYear;
+
+    private SchoolYearDto schoolYearDto;
+
+    private LevelDto level;
+
+
+    public static ClassDto fromEntity(Class entity) {
+        if (entity == null) {
+            return null;
+        }
+
+        return ClassDto.builder()
+                .id(entity.getId())
+                .nameClass(entity.getNameClass())
+                .labelClass(entity.getLabelClass())
+                .schoolYearDto(SchoolYearDto.fromEntity(entity.getSchoolYear()))
+                .level(LevelDto.fromEntity(entity.getLevel()))
+                .build();
+    }
+    public static Class toEntity(ClassDto dto) {
+        if (dto == null) {
+            return null;
+        }
+        return Class.builder()
+                .id(dto.getId())
+                .nameClass(dto.getNameClass())
+                .labelClass(dto.getLabelClass())
+                .schoolYear(SchoolYearDto.toEntity(dto.getSchoolYearDto()))
+                .level(LevelDto.toEntity(dto.getLevel()))
+                .build();
+    }
+
+
+}
+
