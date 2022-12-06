@@ -2,20 +2,16 @@ package com.school.pfe.Dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.school.pfe.Model.Faculty;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
 public class FacultyDto {
 
-    private int id;
+    private Long id;
 
     private String code;
 
@@ -40,6 +36,7 @@ public class FacultyDto {
     }
 
     public static Faculty toEntity(FacultyDto facultyDto) {
+
         if (facultyDto == null) {
             return null;
         }

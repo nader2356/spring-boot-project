@@ -11,10 +11,10 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
 @Table(name = "faculty")
-public class Faculty extends AbstractEntity {
+
+public class Faculty extends AbstractEntity{
 
     @Column(name = "code")
     private String code;
@@ -29,4 +29,5 @@ public class Faculty extends AbstractEntity {
     @OneToMany(mappedBy = "faculty")
     @JsonIgnore
     private List<Level> levels;
+
 }

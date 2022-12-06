@@ -8,9 +8,11 @@ public interface FacultyService {
 
     FacultyDto save(FacultyDto facultyDto);
 
-    FacultyDto findById(Integer id);
+    FacultyDto findById(Long id);
+
+    FacultyDto findByCode(String code);
 
     List<FacultyDto> findAll();
 
-    void delete(Integer id);
+    void delete(Long id);
 }
