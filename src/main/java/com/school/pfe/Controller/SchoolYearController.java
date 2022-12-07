@@ -40,14 +40,14 @@ public class SchoolYearController {
     }
 
     @PostMapping(value = "/save",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<SchoolYearDto> saveLevel(@RequestBody SchoolYearDto dto)
+    public ResponseEntity<SchoolYearDto> save(@RequestBody SchoolYearDto dto)
     {
         return schoolYearService.save(dto);
     }
 
 
     @DeleteMapping("/deleteById/{id}")
-    public ResponseEntity<Void> deleteLevel(@PathVariable(value = "id") Long id)
+    public ResponseEntity<Void> delete(@PathVariable(value = "id") Long id)
     {
         return schoolYearService.deleteById(id);
     }
