@@ -2,7 +2,7 @@ package com.school.pfe.Exception;
 
 public enum ErrorCodes {
 
-	FACULTY_NOT_FOUND(1000),
+    FACULTY_NOT_FOUND(1000),
     FACULTY_NOT_VALID(1001),
     FACULTY_ID_IS_NULL(1002),
     FACULTY_CODE_IS_NULL(1003),
@@ -33,7 +33,13 @@ public enum ErrorCodes {
     SCHOOL_NOT_VALID(6001),
     SCHOOL_ID_IS_NULL(6002),
     SCHOOL_NAME_IS_NULL(6003),
-    SCHOOL_ALREADY_IN_USE(6004)
+    SCHOOL_ALREADY_IN_USE(6004),
+
+    SALLE_NOT_FOUND(7000),
+    SALLE_NOT_VALID(7001),
+    SALLE_ID_IS_NULL(7002),
+    SALLE_ALREADY_IN_USE(7003)
+   
     ;
     private int code;
 
@@ -44,7 +50,4 @@ public enum ErrorCodes {
     public int getCode() {
         return code;
     }
-
-	
-
 }

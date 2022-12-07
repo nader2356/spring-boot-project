@@ -2,6 +2,8 @@ package com.school.pfe.Model;
 
 
 
+import java.util.Set;
+
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
@@ -28,11 +30,12 @@ public class Salle extends AbstractEntity {
 	private String salleNumber;
 	@Column(name = "blocNumber")
 	private String bloc;
-	//@ManyToMany(mappedBy ="salles",fetch = FetchType.LAZY)
-	//private List<Planning> plannings;
+	@ManyToMany(mappedBy ="salles",fetch = FetchType.LAZY)
+	private Set<Planning> plannings;
 	
 	@ManyToOne
-	@JoinColumn(name = "school_Id")
+	@JoinColumn(name = "school_id")
 	private School school ;
 /*	*/
 }
+
