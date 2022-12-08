@@ -22,10 +22,6 @@ public class Faculty extends AbstractEntity{
     @Column(name = "label")
     private String label;
 
-    @ManyToOne
-    @JoinColumn(name = "school_id")
-    private School school;
-
     @OneToMany(mappedBy = "faculty")
     @JsonIgnore
     private List<Level> levels;

@@ -17,8 +17,6 @@ public class FacultyDto {
 
     private String label;
 
-    private SchoolDto school;
-
     @JsonIgnore
     private List<LevelDto> levels;
 
@@ -31,7 +29,6 @@ public class FacultyDto {
                 .id(faculty.getId())
                 .code(faculty.getCode())
                 .label(faculty.getLabel())
-                .school(ConvertSchool.entityToDto(faculty.getSchool()))
                 .build();
     }
 
@@ -45,7 +42,6 @@ public class FacultyDto {
         faculty.setId(facultyDto.getId());
         faculty.setCode(facultyDto.getCode());
         faculty.setLabel(facultyDto.getLabel());
-        faculty.setSchool(ConvertSchool.dtoToEntity(facultyDto.getSchool()));
 
         return faculty;
     }

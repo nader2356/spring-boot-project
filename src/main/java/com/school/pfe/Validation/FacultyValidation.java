@@ -15,7 +15,6 @@ public class FacultyValidation {
         if (facultyDto == null) {
             errors.add("Veuillez renseigner le code du filière");
             errors.add("Veuillez renseigner le titre du filière");
-            errors.add("Veuillez sélectionner une école");
         }
         else {
 
@@ -24,9 +23,6 @@ public class FacultyValidation {
             }
             if (!StringUtils.hasLength(facultyDto.getLabel())) {
                 errors.add("Veuillez renseigner le titre du filière");
-            }
-            if (facultyDto.getSchool() == null) {
-                errors.add("Veuillez sélectionner une école");
             }
         }
 
