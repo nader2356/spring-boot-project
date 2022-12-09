@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.school.pfe.Model.Faculty;
 import com.school.pfe.Model.School;
 
 public class ConvertSchool {

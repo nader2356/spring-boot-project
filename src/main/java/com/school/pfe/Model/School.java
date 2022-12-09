@@ -23,9 +23,7 @@ public class School extends AbstractEntity {
 	private String name;
 	@Column(name = "address")
 	private String address;
-	@OneToMany(mappedBy="school")
-	@JsonIgnore
-    private List<Faculty> faculties;
+	
 	@OneToMany(mappedBy="school")
 	@JsonIgnore
     private List<Salle> salles;
