@@ -1,14 +1,14 @@
 package com.school.pfe.Dto;
 
-import java.util.List;
 
-import javax.persistence.Column;
+
+
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.school.pfe.Model.Faculty;
-import com.school.pfe.Model.Salle;
-import com.school.pfe.Model.School;
+
+import com.school.pfe.Model.ClassRoom;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,40 +25,40 @@ import lombok.Setter;
 @Getter
 
 
-public class SalleDTO {
+public class ClassRoomDto {
 	
 	private Long id;
 	@NotNull(message="it should be not null")
 	
-	private String salleNumber;
-	
+	private String classRoomNumber;
+
 	private String bloc;
 	private SchoolDto school ;
 	@JsonIgnore
-  // private List<PlanningDto> plannings;
+  // private List<SessionDto> sessions;
 	
-	 public static SalleDTO fromEntity(Salle entity) {
+	 public static ClassRoomDto fromEntity(ClassRoom entity) {
 	        if (entity== null) {
 	            return null;
 	        }
 
-	        return SalleDTO.builder()
+	        return ClassRoomDto.builder()
 	        		.id(entity.getId())
-	                .salleNumber(entity.getSalleNumber())
+	                .classRoomNumber(entity.getClassRoomNumber())
 	                .bloc(entity.getBloc())
 	                .school(ConvertSchool.entityToDto(entity.getSchool()))
 	                .build();
 }
 	
-	public static Salle toEntity(SalleDTO salleDTO) {
+	public static ClassRoom toEntity(ClassRoomDto salleDTO) {
 
         if (salleDTO == null) {
             return null;
         }
 
-        Salle entity = new Salle();
+        ClassRoom entity = new ClassRoom();
         entity.setId(salleDTO.getId());
-        entity.setSalleNumber(salleDTO.getSalleNumber());
+        entity.setClassRoomNumber(salleDTO.getClassRoomNumber());
         entity.setBloc(salleDTO.getBloc());
         entity.setSchool(ConvertSchool.dtoToEntity(salleDTO.getSchool()));
 
