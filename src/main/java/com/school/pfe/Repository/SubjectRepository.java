@@ -1,14 +1,14 @@
 package com.school.pfe.Repository;
 
-import com.school.pfe.Model.Faculty;
+import com.school.pfe.Model.Subject;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface FacultyRepository extends JpaRepository<Faculty, Long> {
+public interface SubjectRepository extends JpaRepository<Subject, Long> {
 
-    Optional<Faculty> findFacultyByCode(String code);
+    Optional<Subject> findSubjectByName(String name);
 
 }

@@ -5,16 +5,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "faculty")
+@Table(name = "section")
 
-public class Faculty extends AbstractEntity{
+public class Section extends AbstractEntity{
 
     @Column(name = "code")
     private String code;
@@ -22,8 +25,7 @@ public class Faculty extends AbstractEntity{
     @Column(name = "label")
     private String label;
 
-    @OneToMany(mappedBy = "faculty")
+    @OneToMany(mappedBy = "section")
     @JsonIgnore
     private List<Level> levels;
-
 }
