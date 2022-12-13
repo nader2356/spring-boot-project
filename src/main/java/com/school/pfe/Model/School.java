@@ -26,6 +26,6 @@ public class School extends AbstractEntity {
 	
 	@OneToMany(mappedBy="school")
 	@JsonIgnore
-    private List<Salle> salles;
+    private List<ClassRoom> classRooms;
 
 }
