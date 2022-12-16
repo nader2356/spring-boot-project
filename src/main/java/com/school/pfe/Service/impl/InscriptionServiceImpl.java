@@ -38,9 +38,7 @@ public class InscriptionServiceImpl implements InscriptionService {
                     .map(InscriptionDto::fromEntity)
                     .collect(Collectors.toList());
         }
-        }
-        return null;
-    }
+
 
     @Override
     public void delete(Long id) {
