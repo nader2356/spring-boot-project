@@ -1,36 +1,22 @@
 package com.school.pfe.Dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.school.pfe.Model.Absence;
+
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import java.util.Date;
 @Builder
 @Data
 public class AbsenceDto {
-    private int id;
-
-    private String jourabsence;
-
-
-    private Date datedebut;
-
-
-    private Date dateFin;
-
-
+    private Long id ;
+    private Date dateAbsence;
     private String type;
+    private StudentDto student;
 
-
-    private MatiereDto matiere;
-
-
-
-    private EleveDto eleve;
+    //private SeanceDto seance;
 
 
 
@@ -40,16 +26,10 @@ public class AbsenceDto {
 
         }
         return AbsenceDto.builder()
-                .jourabsence(absence.getJourabsence())
-                .datedebut(absence.getDatedebut())
-                .dateFin(absence.getDateFin())
+                .dateAbsence(absence.getDateAbsence())
                 .type(absence.getType())
-                .matiere(MatiereDto.fromEntity(absence.getMatiere()))
-                .eleve(EleveDto.fromEntity(absence.getEleve()))
+                .student(StudentDto.fromEntity(absence.getStudent()))
                 .id(absence.getId())
-
-
-
                 .build();
     }
 
@@ -60,9 +40,7 @@ public class AbsenceDto {
         Absence absence=new Absence();
 
         absence.setId(absenceDto.getId());
-        absence.setJourabsence(absenceDto.getJourabsence());
-        absence.setDatedebut(absenceDto.getDatedebut());
-        absence.setDateFin(absenceDto.getDateFin());
+        absence.setDateAbsence(absenceDto.getDateAbsence());
         absence.setType(absenceDto.getType());
 
         return absence;
