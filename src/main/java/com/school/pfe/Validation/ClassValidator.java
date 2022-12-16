@@ -14,8 +14,8 @@ public class ClassValidator {
         if (dto == null) {
             errors.add("please fill in the name of the class");
             errors.add("please fill in the label of the class");
-            errors.add("please fill in the school year of the class");
-            errors.add("Please select the school year");
+            errors.add("Please select the level");
+            errors.add("Please select the TimeTable");
             return errors;
         }
 
@@ -25,9 +25,9 @@ public class ClassValidator {
         if (!StringUtils.hasLength(dto.getLabelClass())) {
             errors.add("please fill in the label of the class");
         }
-        if (dto.getSchoolYearDto() == null || dto.getSchoolYearDto().getId()==null) {
-            errors.add("Please select the school year");
-        }
+       /* if (dto.TimeTable() == null || dto.getTimeTableDto().getId()==null) {
+            errors.add("Please select the TimeTable");
+        }*/
         if (dto.getLevel() == null || dto.getLevel().getId()==null) {
             errors.add("Please select the level");
         }

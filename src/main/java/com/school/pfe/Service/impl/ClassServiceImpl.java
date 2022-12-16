@@ -82,11 +82,32 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public ResponseEntity<List<ClassDto>> findAllBySchoolYear(SchoolYearDto dto) {
-        return  ResponseEntity.ok(repository.findAllBySchoolYear(SchoolYearDto.toEntity(dto)).stream()
+    public ResponseEntity<ClassDto> findClassByLabelClass(String labelClass) {
+        if (labelClass == null) {
+            log.error("label Class is null");
+            return null;
+        }
+        return  ResponseEntity.ok(repository.findClassByLabelClass(labelClass)
                 .map(ClassDto::fromEntity)
-                .collect(Collectors.toList()));
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "No class with label = " + labelClass + " was not found in the DataBase", ErrorCodes.CLASS_NOT_FOUND)
+                ));
     }
+
+    @Override
+    public ResponseEntity<ClassDto> findClassByNameClass(String nameClass) {
+        if (nameClass == null) {
+            log.error("name Class is null");
+            return null;
+        }
+        return  ResponseEntity.ok(repository.findClassByNameClass(nameClass)
+                .map(ClassDto::fromEntity)
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "No class with name  = " + nameClass + " was not found in the DataBase", ErrorCodes.CLASS_NOT_FOUND)
+                ));
+    }
+
+
 
     @Override
     public ResponseEntity<List<ClassDto>> findAllByLevel(LevelDto dto) {

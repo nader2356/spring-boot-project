@@ -3,6 +3,7 @@ package com.school.pfe.Service;
 import com.school.pfe.Dto.ClassDto;
 import com.school.pfe.Dto.LevelDto;
 import com.school.pfe.Dto.SchoolYearDto;
+import com.school.pfe.Model.Class;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface ClassService {
 
     ResponseEntity<Void> deleteById(Long classId) ;
 
-    ResponseEntity<List<ClassDto>> findAllBySchoolYear(SchoolYearDto dto);
-
+    ResponseEntity<ClassDto> findClassByLabelClass(String labelClass);
+    ResponseEntity<ClassDto> findClassByNameClass(String nameClass);
     ResponseEntity<List<ClassDto>> findAllByLevel(LevelDto dto);
 }
