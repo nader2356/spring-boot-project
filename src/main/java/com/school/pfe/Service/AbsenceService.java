@@ -7,8 +7,8 @@ import java.util.List;
 public interface AbsenceService {
 
     AbsenceDto save(AbsenceDto dto);
-    AbsenceDto findbyId(Integer id);
+    AbsenceDto findbyId(Long id);
 
     List<AbsenceDto> findAll();
-    void delete(Integer id);
+    void delete(Long id);
 }

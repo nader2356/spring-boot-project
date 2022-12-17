@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+import static com.school.pfe.Utils.Constants.ABSENCE_ENDPOINT;
+
+
 @RestController
-@RequestMapping("api/school/absence")
+@RequestMapping(value = ABSENCE_ENDPOINT)
 @CrossOrigin(origins = "http://localhost:4200")
 public class AbsenceController {
     private AbsenceService absenceService;
@@ -27,7 +30,7 @@ public class AbsenceController {
     }
 
     @DeleteMapping("/deleteAbsence/{id}")
-    public void delete(@PathVariable Integer id) {
+    public void delete(@PathVariable Long id) {
 
         absenceService.delete(id);
     }
@@ -39,7 +42,7 @@ public class AbsenceController {
     }
 
     @GetMapping("/getbyid/{id}")
-    public AbsenceDto getbyid(@PathVariable Integer id) {
+    public AbsenceDto getbyid(@PathVariable Long id) {
 
         return absenceService.findbyId(id);
     }
