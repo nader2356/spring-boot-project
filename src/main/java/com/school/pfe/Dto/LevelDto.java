@@ -5,6 +5,8 @@ import com.school.pfe.Model.Level;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 
 @Data
 @Builder
@@ -16,7 +18,7 @@ public class LevelDto {
 
     private String label ;
 
-    private FacultyDto faculty;
+    private SectionDto section;
 
     @JsonIgnore
     private List<ClassDto> classes;
@@ -31,7 +33,7 @@ public class LevelDto {
                 .id(level.getId())
                 .code(level.getCode())
                 .label(level.getLabel())
-                .faculty(FacultyDto.fromEntity(level.getFaculty()))
+                .section(SectionDto.fromEntity(level.getSection()))
                 .build();
 
     }
@@ -46,7 +48,7 @@ public class LevelDto {
                 .id(levelDto.getId())
                 .code(levelDto.getCode())
                 .label(levelDto.getLabel())
-                .faculty(FacultyDto.toEntity(levelDto.getFaculty()))
+                .section(SectionDto.toEntity(levelDto.getSection()))
                 .build();
 
     }

@@ -34,16 +34,16 @@ public class InscriptionDto {
 
         }
         return InscriptionDto.builder()
-                .AcademicYear(inscription.getAcademicYear())
+                .academicYear(inscription.getAcademicYear())
                 .payment(inscription.getPayment())
                 .paymentType(inscription.getPaymentType())
-                .School(inscription.getSchool())
-                .Section(inscription.getSection())
-                .receipt(ReceiptDto.fromEntity(inscription.getReceipt())
+                .school(inscription.getSchool())
+                .section(inscription.getSection())
+                //.receipt(ReceiptDto.fromEntity(inscription.getReceipt())
                 .id(inscription.getId())
                 .level(inscription.getLevel())
-                .Class(inscription.getClasse())
-                .student(StudentDto.fromEntity(inscription.getStudent()))
+                .classe(inscription.getClasse())
+                //.student(StudentDto.fromEntity(inscription.getStudent()))
 
 
 
@@ -63,7 +63,7 @@ public class InscriptionDto {
         inscription.setSchool(inscriptionDto.getSchool());
         inscription.setSection(inscriptionDto.getSection());
         inscription.setLevel(inscriptionDto.getLevel());
-        inscription.setClass(inscriptionDto.getSchool());
+        inscription.setClasse(inscriptionDto.getSchool());
 
         return inscription;
     }

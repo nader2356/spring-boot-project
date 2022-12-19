@@ -57,11 +57,11 @@ public class TeacherDto {
 		
 		return teacherDto;
 	}
-	public List<TeacherDto> entityToDto(List<Teacher> listTeacher) {
-	return listTeacher.stream().map(x -> entityToDto(x)).collect(Collectors.toList());
+	public static List<TeacherDto> entityToDto(List<Teacher> listTeacher) {
+	return listTeacher.stream().map(TeacherDto::entityToDto).collect(Collectors.toList());
 	}
 
-	public List<Teacher> dtoToEntity(List<TeacherDto> teacherDto) {
-		return teacherDto.stream().map(x -> dtoToEntity(x)).collect(Collectors.toList());
+	public static List<Teacher> dtoToEntity(List<TeacherDto> teacherDto) {
+		return teacherDto.stream().map(TeacherDto::dtoToEntity).collect(Collectors.toList());
 	}
 }

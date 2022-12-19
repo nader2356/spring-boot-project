@@ -18,6 +18,8 @@ import static com.school.pfe.Utils.Constants.SCHOOL_ENDPOINT;
 
 @CrossOrigin(origins = "http://localhost:4200")
 public class ReciptPaymentController {
+
+
     private final ReceiptService receiptService;
 
     public ReciptPaymentController(ReceiptService receiptService) {

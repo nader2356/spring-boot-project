@@ -14,7 +14,7 @@ public class LevelInfoListingDto {
 
     private String label ;
 
-    private String facultyName;
+    private String sectionName;
 
     public static LevelInfoListingDto fromEntity(Level level) {
         if (level == null) {
@@ -25,7 +25,7 @@ public class LevelInfoListingDto {
                 .id(level.getId())
                 .code(level.getCode())
                 .label(level.getLabel())
-                .facultyName(level.getFaculty()!=null?level.getFaculty().getLabel():"")
+                .sectionName(level.getSection()!=null?level.getSection().getLabel():"")
                 .build();
     }
 }

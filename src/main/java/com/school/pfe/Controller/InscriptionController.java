@@ -21,8 +21,8 @@ public class InscriptionController {
 
     @PostMapping("/addOrUpdate")
     public ResponseEntity<InscriptionDto> save(@Valid @RequestBody InscriptionDto inscriptionDto) {
-        InscriptionDto inscriptionDTOsaved = InscriptionService.save(inscriptionDto);
-        return new ResponseEntity<InscriptionDto>(inscriptionDTOsaved, HttpStatus.CREATED);
+
+        return new ResponseEntity<>(inscriptionService.save(inscriptionDto), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/deleteInscription/{id}")

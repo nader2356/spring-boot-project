@@ -23,8 +23,8 @@ public class Level extends AbstractEntity{
     private String label ;
 
     @ManyToOne
-    @JoinColumn(name = "faculty_id")
-    private Faculty faculty;
+    @JoinColumn(name = "section_id")
+    private Section section;
 
     @OneToMany(mappedBy = "level")
     private List<Class> classes;

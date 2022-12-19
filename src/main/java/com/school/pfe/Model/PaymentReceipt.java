@@ -18,6 +18,7 @@ public class PaymentReceipt extends AbstractEntity{
 	
 	private BigDecimal price;
 	private Date dateReceipt;
+	private String name;
 	//@OneToOne
 	//private Inscription inscription;
 

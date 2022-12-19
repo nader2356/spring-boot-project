@@ -19,7 +19,7 @@ public class ReceiptDto {
 	private Long id;
 	private BigDecimal price;
 	private Date dateReceipt;
-	
+	private String name;
 	
 	
 	 public static ReceiptDto fromEntity(PaymentReceipt entity) {
@@ -31,7 +31,7 @@ public class ReceiptDto {
 	                .id(entity.getId())
 	                .price(entity.getPrice())
 	                .dateReceipt(entity.getDateReceipt())
-	                
+					.name(entity.getName())
 	                .build();
 	    }
 	    public static PaymentReceipt toEntity(ReceiptDto receiptDto) {
@@ -42,6 +42,7 @@ public class ReceiptDto {
 	                .id(receiptDto.getId())
 	                .price(receiptDto.getPrice())
 	                .dateReceipt(receiptDto.getDateReceipt())
+					.name(receiptDto.getName())
 	                .build();
 	    }
 	

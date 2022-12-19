@@ -1,4 +1,4 @@
-package com.school.pfe.Service.implimentation;
+package com.school.pfe.Service.impl;
 
 import com.school.pfe.Dto.ConvertSchool;
 import com.school.pfe.Dto.ReceiptDto;
