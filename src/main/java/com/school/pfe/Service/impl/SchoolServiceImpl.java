@@ -6,8 +6,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-import com.school.pfe.Dto.ConvertSchool;
 import com.school.pfe.Dto.SchoolDto;
 import com.school.pfe.Exception.EntityNotFoundException;
 import com.school.pfe.Exception.ErrorCodes;
@@ -40,9 +38,9 @@ public class SchoolServiceImpl implements SchoolService {
             log.error("school is not valid {}", schoolDto);
             throw new InvalidEntityException("l'ecole n'est pas valide", ErrorCodes.SCHOOL_NOT_VALID, errors);
         }
-        return ConvertSchool.entityToDto(
+        return SchoolDto.entityToDto(
                 schoolRepository.save(
-                        ConvertSchool.dtoToEntity(schoolDto)
+                		SchoolDto.dtoToEntity(schoolDto)
                 )
         );
 
@@ -57,7 +55,7 @@ public class SchoolServiceImpl implements SchoolService {
         }
         Optional<School> school = schoolRepository.findById(id);
 
-        return Optional.of(ConvertSchool.entityToDto(school.get())).orElseThrow(() ->
+        return Optional.of(SchoolDto.entityToDto(school.get())).orElseThrow(() ->
                 new EntityNotFoundException(
                         "Aucune ecole avec l'ID = " + id + " n'a été trouvée dans la BDD",
                         ErrorCodes.SCHOOL_NOT_FOUND)
@@ -74,7 +72,7 @@ public class SchoolServiceImpl implements SchoolService {
         }
         Optional<School> school = schoolRepository.findSchoolByName(name);
 
-        return Optional.of(ConvertSchool.entityToDto(school.get())).orElseThrow(() ->
+        return Optional.of(SchoolDto.entityToDto(school.get())).orElseThrow(() ->
                 new EntityNotFoundException(
                         "Aucune ecole avec le nom = " + name + " n'a été trouvée dans la BDD",
                         ErrorCodes.SCHOOL_NOT_FOUND)
@@ -86,7 +84,7 @@ public class SchoolServiceImpl implements SchoolService {
     public List<SchoolDto> findAll() {
 
         return schoolRepository.findAll().stream()
-                .map(ConvertSchool::entityToDto)
+                .map(SchoolDto::entityToDto)
                 .collect(Collectors.toList());
 
     }
