@@ -19,7 +19,7 @@ public class Absence extends AbstractEntity {
     @ManyToOne
     @JoinColumn(name = "student")
     private Student student;
-    //@ManyToOne
-    //private Seance seance;
+    @ManyToOne
+    private Seance seance;
 
 }

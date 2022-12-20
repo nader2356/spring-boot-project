@@ -16,7 +16,7 @@ public class AbsenceDto {
     private String type;
     private StudentDto student;
 
-    //private SeanceDto seance;
+    private SeanceDto seance;
 
 
 
@@ -29,6 +29,7 @@ public class AbsenceDto {
                 .dateAbsence(absence.getDateAbsence())
                 .type(absence.getType())
                 .student(StudentDto.fromEntity(absence.getStudent()))
+                .seance(SeanceDto.fromEntity(absence.getSeance()))
                 .id(absence.getId())
                 .build();
     }
