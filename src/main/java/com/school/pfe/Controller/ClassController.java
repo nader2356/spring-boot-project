@@ -34,10 +34,19 @@ public class ClassController{
         return classService.findById(id);
     }
 
-    @GetMapping(value = "/findAllBySchoolYear",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<ClassDto>> findAllBySchoolYear(@RequestBody SchoolYearDto dto) {
-        return classService.findAllBySchoolYear(dto);
+    @GetMapping(value = "/findClassByLabelClass/{label}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ClassDto> findClassByLabelClass(@PathVariable(value = "label") String label)
+    {
+        return classService.findClassByLabelClass(label);
     }
+
+    @GetMapping(value = "/findClassByNameClass/{name}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ClassDto> findClassByNameClass(@PathVariable(value = "name") String name)
+    {
+        return classService.findClassByNameClass(name);
+    }
+
+
 
     @GetMapping(value = "/findAllByLevel",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ClassDto>> findAllByLevel(@RequestBody LevelDto dto) {

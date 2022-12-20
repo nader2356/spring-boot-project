@@ -33,7 +33,7 @@ public class LevelValidation {
                 errors.add("Veuillez renseigner la designation du niveau");
             }
 
-            if(levelDto.getFaculty() == null)
+            if(levelDto.getSection() == null)
             {
                 errors.add("Veuillez renseigner la filière du niveau");
             }

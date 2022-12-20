@@ -10,7 +10,9 @@ import java.util.Optional;
 
 
 public interface ClassRepository extends JpaRepository<Class, Long> {
-    List<Class> findAllBySchoolYear(SchoolYear schoolYear);
+    Optional<Class> findClassByLabelClass(String labelClass);
+    Optional<Class> findClassByNameClass(String nameClass);
+
     List<Class> findAllByLevel(Level level);
 
 }

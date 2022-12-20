@@ -13,25 +13,13 @@ import java.util.Date;
 @Entity
 public class Absence extends AbstractEntity {
 
-    @Column(name = "jourabsence")
-    private String jourabsence;
-
-    @Column(name = "datedebut")
-    private Date datedebut;
-
-    @Column(name = "dateFin")
-    private Date dateFin;
-
-    @Column(name = "type")
+    private Date dateAbsence;
     private String type;
-    @ManyToOne
-    @JoinColumn(name = "matiere_id")
-    @JsonIgnore
-    private Matiere matiere;
 
     @ManyToOne
-    @JoinColumn(name = "eleve_id")
-    @JsonIgnore
-    private Eleve eleve;
+    @JoinColumn(name = "student")
+    private Student student;
+    //@ManyToOne
+    //private Seance seance;
 
 }

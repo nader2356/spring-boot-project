@@ -16,9 +16,6 @@ public class ClassDto {
 
     private  String labelClass;
 
-    private  String schoolYear;
-
-    private SchoolYearDto schoolYearDto;
 
     private LevelDto level;
 
@@ -32,7 +29,6 @@ public class ClassDto {
                 .id(entity.getId())
                 .nameClass(entity.getNameClass())
                 .labelClass(entity.getLabelClass())
-                .schoolYearDto(SchoolYearDto.fromEntity(entity.getSchoolYear()))
                 .level(LevelDto.fromEntity(entity.getLevel()))
                 .build();
     }
@@ -44,7 +40,6 @@ public class ClassDto {
                 .id(dto.getId())
                 .nameClass(dto.getNameClass())
                 .labelClass(dto.getLabelClass())
-                .schoolYear(SchoolYearDto.toEntity(dto.getSchoolYearDto()))
                 .level(LevelDto.toEntity(dto.getLevel()))
                 .build();
     }

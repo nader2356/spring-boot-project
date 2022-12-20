@@ -15,8 +15,7 @@ public class TeacherServiceImpl implements TeacherService{
 
 	@Autowired
 	private TeacherRepository teacherRepository;
-	@Autowired
-	private TeacherDto teacherDto;
+
 	
 	@Override
 	public TeacherDto save(TeacherDto teacherDto) {
@@ -31,7 +30,7 @@ public class TeacherServiceImpl implements TeacherService{
 		Optional<Teacher> optionalTeacher =teacherRepository.findById(id);
 		 if (optionalTeacher.isPresent()) {
 			 Teacher teacher=optionalTeacher.get();
-				 return teacherDto.entityToDto(teacher);
+				 return TeacherDto.entityToDto(teacher);
 		 }
 		 else
 			{
@@ -41,7 +40,7 @@ public class TeacherServiceImpl implements TeacherService{
 
 	@Override
 	public List<TeacherDto> findAll() {
-		return teacherDto.entityToDto(teacherRepository.findAll());
+		return TeacherDto.entityToDto(teacherRepository.findAll());
 	}
 
 	@Override

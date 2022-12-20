@@ -34,7 +34,7 @@ public class AbsenceServiceImpl implements AbsenceService {
     }
 
     @Override
-    public AbsenceDto findbyId(Integer id) {
+    public AbsenceDto findbyId(Long id) {
         if (id == null) {
             log.error("absence ID is null");
             return null;
@@ -54,7 +54,7 @@ public class AbsenceServiceImpl implements AbsenceService {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         if (id == null) {
             log.error("absence ID is null");
             return;

@@ -10,18 +10,15 @@ public class AbsenceValidator {
     public static List<String> validate(AbsenceDto dto) {
         List<String> errors = new ArrayList<>();
         if (dto == null) {
-            errors.add("veuillez renseigner le jour d'absence");
-            errors.add("veuillez renseigner le type d'absence");
+
+            errors.add("please fill in the type of absence");
             return errors;
         }
 
-        if (!StringUtils.hasLength(dto.getJourabsence())) {
 
-            errors.add("veuillez renseigner le jour d'absence");
-        }
         if (!StringUtils.hasLength(dto.getType())) {
 
-            errors.add("veuillez renseigner le type d'absence");
+            errors.add("please fill in the type of absence");
         }
         return errors;
     }}

@@ -9,5 +9,7 @@ public interface Constants {
     String SCHOOL_ENDPOINT = APP_ROOT + "/schools";
     String CLASSROOM_ENDPOINT = APP_ROOT + "/classRooms";
     String SUBJECT_ENDPOINT = APP_ROOT + "/subjects";
+    String ABSENCE_ENDPOINT = APP_ROOT + "/absence";
+    String STUDENT_ENDPOINT = APP_ROOT + "/student";
 
 }

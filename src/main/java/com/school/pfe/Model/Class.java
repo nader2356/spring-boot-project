@@ -25,15 +25,15 @@ public class Class  extends AbstractEntity
     @NotNull(message = "labelClass is required")
     @Column(name = "labelClass")
     private  String labelClass;
-
     @ManyToOne
-    private SchoolYear schoolYear;
+    private Level level  ;
+
+   /* @OneToOne
+    private TimeTable TimeTable;
 
 
-    @ManyToOne
-    private Level level;
-
-    /*@OneToOne
-    private Planning planning;*/
+    @OneToMany(mappedBy="classe",fetch=FetchType.EAGER)
+    private List<Student> listStudent;
+*/
 
 }
