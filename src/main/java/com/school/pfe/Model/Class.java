@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,10 +31,10 @@ public class Class  extends AbstractEntity
 
    /* @OneToOne
     private TimeTable TimeTable;
-
+*/
 
     @OneToMany(mappedBy="classe",fetch=FetchType.EAGER)
-    private List<Student> listStudent;
-*/
+    private List<Student> students;
+
 
 }
