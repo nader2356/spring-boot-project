@@ -21,10 +21,10 @@ public class SeanceDto {
     private String day;
     private String numSeance;
     private int coursID;
-    private ClassRoom classRoom;
-    private Teacher teacher;
-    private Set<Absence> Absences;
-    private TimeTable timeTable;
+    private ClassRoomDto classRoom;
+    private TeacherDto teacher;
+    private Set<AbsenceDto> Absences;
+    private TimeTableDto timeTable;
 
 
     public static SeanceDto fromEntity(Seance seance) {
@@ -48,9 +48,7 @@ public class SeanceDto {
         }
         Seance seance=new Seance();
         seance.setId(seanceDto.getId());
-        seance.setClassRoom(seanceDto.getClassRoom());
-        seance.setTimeTable(seanceDto.getTimeTable());
-        seance.setTeacher(seanceDto.getTeacher());
+
         seance.setCoursID(seanceDto.getCoursID());
         seance.setNumSeance(seanceDto.getNumSeance());
         seance.setDay(seanceDto.getDay());

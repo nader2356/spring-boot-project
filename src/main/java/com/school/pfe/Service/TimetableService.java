@@ -2,15 +2,19 @@ package com.school.pfe.Service;
 
 import org.springframework.http.ResponseEntity;
 
-import com.school.pfe.Dto.TimetableDto;
-import com.school.pfe.Model.Timetable;
+import com.school.pfe.Dto.TimeTableDto;
+import com.school.pfe.Model.TimeTable;
 
 public interface TimetableService {
-	TimetableDto save(TimetableDto timetableDto);
+	TimeTableDto save(TimeTableDto timetableDto);
 
-	TimetableDto timetableById(Long idTimetable);
+	TimeTableDto timetableById(Long idTimetable);
 
 	ResponseEntity<Void> delete(Long id);
 
-	Timetable save(Timetable planing);
 }
+
+
+
+
+
