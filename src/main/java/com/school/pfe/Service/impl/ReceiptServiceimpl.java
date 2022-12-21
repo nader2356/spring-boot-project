@@ -1,13 +1,10 @@
 package com.school.pfe.Service.impl;
 
-import com.school.pfe.Dto.ConvertSchool;
 import com.school.pfe.Dto.ReceiptDto;
-import com.school.pfe.Dto.SchoolDto;
 import com.school.pfe.Exception.EntityNotFoundException;
 import com.school.pfe.Exception.ErrorCodes;
 import com.school.pfe.Exception.InvalidOperationException;
 import com.school.pfe.Model.PaymentReceipt;
-import com.school.pfe.Model.School;
 import com.school.pfe.Repository.PaymentReceiptRepository;
 import com.school.pfe.Service.ReceiptService;
 import lombok.RequiredArgsConstructor;
@@ -25,10 +22,9 @@ public class ReceiptServiceimpl implements ReceiptService{
 	public ReceiptDto save(ReceiptDto receiptDto) {
 		
 			PaymentReceipt inscription = ReceiptDto.toEntity(receiptDto);
-			PaymentReceipt inscriptionsaved=repository.save(inscription);
-			ReceiptDto receiptDtosav= ReceiptDto.fromEntity(inscriptionsaved);
+			PaymentReceipt inscriptionSaved=repository.save(inscription);
+			return ReceiptDto.fromEntity(inscriptionSaved);
 
-	        return receiptDtosav;
 	}
 
 	@Override

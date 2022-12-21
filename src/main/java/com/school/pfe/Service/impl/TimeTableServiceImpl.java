@@ -66,18 +66,18 @@ public class TimeTableServiceImpl implements TimetableService{
 		}
 		
 		
-		Boolean availabilityPlannig = verifyAvaillabilityPlanning(idPlanning, day, numSeance);
+		boolean availabilityPlannig = verifyAvaillabilityPlanning(idPlanning, day, numSeance);
 		if (availabilityPlannig == false) {
 			return ("There is already a seance in the planning at this time!");
 		}
 		
-		Boolean availabilityProf = verifyAvaillabilityProfessor(idProf, day, numSeance);
-		if (availabilityProf == false) {
+		boolean availabilityProf = verifyAvaillabilityProfessor(idProf, day, numSeance);
+		if (!availabilityProf) {
 			return ("The teacher is not available!");
 		}
 		
-		Boolean availabilityClassroom = verifyAvaillabilitySalle(idClassroom, day, numSeance);
-		if (availabilityClassroom == false) {
+		boolean availabilityClassroom = verifyAvaillabilitySalle(idClassroom, day, numSeance);
+		if (!availabilityClassroom) {
 			return ("The classroom is not available!");
 		}
 		
