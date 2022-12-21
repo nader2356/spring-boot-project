@@ -1,40 +1,32 @@
 package com.school.pfe.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Set;
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
-@Getter
-@Setter
 @Entity
-public class Seance {
-	
-	@Id
-    @GeneratedValue
-	int IdSéance;
-	int NumSéance;
-	int IdSalle;
-	String matière;
-	String jour;
-	int IdProf;
-	
-	@ManyToOne
-	Timetable timetable;
-	
-	@ManyToOne
-	Teacher teacher;
-	
-	@ManyToOne
-	ClassRoom classroom;
+@SuperBuilder
+public class Seance extends AbstractEntity{
 
-}
+	private String day;
+	private String numSeance;
+
+
+
+	private int coursID;
+	@ManyToOne
+	private ClassRoom ClassRoom;
+	@ManyToOne
+	private Teacher teacher;
+
+	@OneToMany
+	Set<Absence> Absences;
+
+	@ManyToOne
+	private TimeTable timeTable;}
