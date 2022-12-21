@@ -23,7 +23,7 @@ public class Student extends AbstractEntity{
     private String adress;
 
 
-    @OneToMany
+    @OneToMany(mappedBy = "student")
     private List<Inscription> listInscription;
 
     @OneToMany(mappedBy="student")

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -19,8 +20,8 @@ public class PaymentReceipt extends AbstractEntity{
 	private BigDecimal price;
 	private Date dateReceipt;
 	private String name;
-	//@OneToOne
-	//private Inscription inscription;
+	@OneToOne
+	private Inscription inscription;
 
 
 	

@@ -46,7 +46,7 @@ public class ClassRoomDto {
 	        		.id(entity.getId())
 	                .classRoomNumber(entity.getClassRoomNumber())
 	                .bloc(entity.getBloc())
-	                .school(ConvertSchool.entityToDto(entity.getSchool()))
+	                .school(SchoolDto.entityToDto(entity.getSchool()))
 	                .build();
 }
 	
@@ -60,7 +60,7 @@ public class ClassRoomDto {
         entity.setId(salleDTO.getId());
         entity.setClassRoomNumber(salleDTO.getClassRoomNumber());
         entity.setBloc(salleDTO.getBloc());
-        entity.setSchool(ConvertSchool.dtoToEntity(salleDTO.getSchool()));
+        entity.setSchool(SchoolDto.dtoToEntity(salleDTO.getSchool()));
 
         return entity;
     }

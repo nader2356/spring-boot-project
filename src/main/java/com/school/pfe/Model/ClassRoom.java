@@ -22,8 +22,8 @@ public class ClassRoom extends AbstractEntity {
 
 	private String bloc;
 	
-	/*@OneToMany (mappedBy="classRoom",fetch=FetchType.EAGER)
-	private List<Seance> listSeance;*/
+	@OneToMany (mappedBy="classRoom",fetch=FetchType.EAGER)
+	private List<Seance> listSeance;
 	
 	@ManyToOne
 	private School school ;

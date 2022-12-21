@@ -29,4 +29,7 @@ public class Level extends AbstractEntity{
     @OneToMany(mappedBy = "level")
     private List<Class> classes;
 
+    @OneToMany(mappedBy = "level")
+    private List<Subject> subjects;
+
 }

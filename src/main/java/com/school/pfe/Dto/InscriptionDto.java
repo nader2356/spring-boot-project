@@ -17,7 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 public class InscriptionDto {
-    private int id;
+    private long id;
     private Date academicYear;
     private int payment;
     private String paymentType;

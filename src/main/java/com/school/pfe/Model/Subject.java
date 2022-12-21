@@ -26,7 +26,7 @@ public class Subject extends AbstractEntity{
     @JoinColumn(name = "level_id")
     private Level level;
 
-    /*@OneToMany(mappedBy = "subject")
+   @OneToMany(mappedBy = "subject")
     @JsonIgnore
-    private List<Teacher> teachers;*/
+    private List<Teacher> teachers;
 }

@@ -3,8 +3,10 @@ package com.school.pfe.Controller;
 
 import javax.validation.Valid;
 
+import com.school.pfe.Dto.TimeTableDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,12 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.school.pfe.Dto.TimetableDto;
+
 import com.school.pfe.Model.Seance;
 import com.school.pfe.Service.impl.TimeTableServiceImpl;
-
+import static com.school.pfe.Utils.Constants.TIME_TABLE_ENDPOINT;
 @RestController
-@RequestMapping("api/school/timetable")
+@RequestMapping(TIME_TABLE_ENDPOINT)
 @CrossOrigin(origins = "http://localhost:4200")
 public class TimetableController {
 
@@ -28,17 +30,17 @@ public class TimetableController {
 
 	//Save new Timetable
 	@PostMapping("/saveOrUpdate")
-	public ResponseEntity<TimetableDto> InsertTimetable(@Valid @RequestBody TimetableDto timetableDto) {
-		TimetableDto timetableDtosaved = timetableService.save(timetableDto);
-		return new ResponseEntity<TimetableDto>(timetableDtosaved, HttpStatus.CREATED);
+	public ResponseEntity<TimeTableDto> InsertTimetable(@Valid @RequestBody TimeTableDto timetableDto) {
+
+		return new ResponseEntity<>(timetableService.save(timetableDto), HttpStatus.CREATED);
 	}
 	
 	
 	//Affect new Seance to Timetable
 	@PostMapping("/affectSeanceToTimetable/{idPlanning}/{idProf}/{idClassroom}")
 	public String affectSeanceToTimetable(@Valid @RequestBody Seance seance, @PathVariable Long idPlanning,@PathVariable Long idProf, @PathVariable long idClassroom) {
-		String messagetimetablesaved = timetableService.addSeanceToPlanning(seance, idPlanning, idProf, idClassroom);
-		return (messagetimetablesaved);
+		return timetableService.addSeanceToPlanning(seance, idPlanning, idProf, idClassroom);
+
 	}
 	
 	//Delete Timetable
@@ -49,7 +51,7 @@ public class TimetableController {
 
 	//Get Timetable By Id
 	@GetMapping("/findTimetable/{id}")
-	public TimetableDto findTimetable(@PathVariable Long id) {
+	public TimeTableDto findTimetable(@PathVariable Long id) {
 		return timetableService.timetableById(id);
 	}
 }

@@ -36,8 +36,8 @@ public class SchoolYear extends AbstractEntity{
     @Column(name = "endDateSemestre2")
     private Instant endDateSemestre2;
 
-    /*@OneToMany(mappedBy = "schoolYear")
-    private Set<Class> classes;*/
+    @OneToOne(mappedBy = "schoolYear")
+    private TimeTable timeTable;
 
 
 

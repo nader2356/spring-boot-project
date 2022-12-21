@@ -29,9 +29,9 @@ public class Class  extends AbstractEntity
     @ManyToOne
     private Level level  ;
 
-   /* @OneToOne
+    @OneToOne(mappedBy = "classe")
     private TimeTable TimeTable;
-*/
+
 
     @OneToMany(mappedBy="classe",fetch=FetchType.EAGER)
     private List<Student> students;

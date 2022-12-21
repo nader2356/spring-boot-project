@@ -16,10 +16,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class Inscription {
-    @Id
-    @GeneratedValue
-    private int id;
+public class Inscription extends AbstractEntity{
+
     private Date academicYear;
     private int payment;
     private String paymentType;
@@ -27,8 +25,8 @@ public class Inscription {
     private String section;
     private String level;
     private String classe;
-    /*@OneToOne
-    private Receipt receipt;
+    @OneToOne
+    private PaymentReceipt receipt;
     @ManyToOne
-    private Student student;*/
+    private Student student;
 }

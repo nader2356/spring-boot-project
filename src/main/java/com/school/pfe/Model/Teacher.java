@@ -1,12 +1,8 @@
 package com.school.pfe.Model;
+import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 import lombok.AllArgsConstructor;
@@ -25,7 +21,8 @@ public class Teacher extends AbstractEntity{
 	private String address;
 	private String email;
 	private String telephone;
-	//@ManyToMany (mappedBy = "Teachers" ,fetch = FetchType.LAZY)
-	//private Set<Planning> Plannings;
-	
+	@OneToMany (mappedBy = "teacher" )
+	private List<Seance> seances;
+	@ManyToOne
+	private Subject subject;
 }
