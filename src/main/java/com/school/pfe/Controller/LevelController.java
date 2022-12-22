@@ -1,7 +1,7 @@
 package com.school.pfe.Controller;
 
 import com.school.pfe.Dto.LevelDto;
-import com.school.pfe.Dto.LevelInfoListingDto;
+import com.school.pfe.Dto.LevelInfoDto;
 import com.school.pfe.Service.LevelService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -11,17 +11,18 @@ import static com.school.pfe.Utils.Constants.LEVEL_ENDPOINT;
 
 @RestController
 @RequestMapping(value = LEVEL_ENDPOINT)
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class LevelController {
 
-    private LevelService levelService;
+    private final LevelService levelService;
 
     public LevelController(LevelService levelService) {
         this.levelService = levelService;
     }
 
     @GetMapping(value = "/getAllLevels",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<LevelInfoListingDto>> getAllLevels()
+    public ResponseEntity<List<LevelInfoDto>> getAllLevels()
     {
         return levelService.getAllLevels();
     }
@@ -45,9 +46,15 @@ public class LevelController {
     }
 
 
-    @DeleteMapping("/deleteCategory/{levelId}")
+    @DeleteMapping("/deleteLevel/{levelId}")
     public ResponseEntity<Void> deleteLevel(@PathVariable(value = "levelId") Long levelId)
     {
         return levelService.deleteLevel(levelId);
+    }
+
+    @GetMapping(value = "/getLevelList",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<LevelDto>> getLevelList()
+    {
+        return levelService.getLevelList();
     }
 }

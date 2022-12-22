@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class LevelInfoListingDto {
+public class LevelInfoDto {
 
     private Long id ;
 
@@ -16,12 +16,12 @@ public class LevelInfoListingDto {
 
     private String sectionName;
 
-    public static LevelInfoListingDto fromEntity(Level level) {
+    public static LevelInfoDto fromEntity(Level level) {
         if (level == null) {
             return null;
         }
 
-        return LevelInfoListingDto.builder()
+        return LevelInfoDto.builder()
                 .id(level.getId())
                 .code(level.getCode())
                 .label(level.getLabel())

@@ -1,7 +1,7 @@
 package com.school.pfe.Service.impl;
 
 import com.school.pfe.Dto.LevelDto;
-import com.school.pfe.Dto.LevelInfoListingDto;
+import com.school.pfe.Dto.LevelInfoDto;
 import com.school.pfe.Exception.EntityNotFoundException;
 import com.school.pfe.Exception.ErrorCodes;
 import com.school.pfe.Exception.InvalidOperationException;
@@ -29,9 +29,9 @@ public class LevelServiceImpl implements LevelService {
     }
 
     @Override
-    public ResponseEntity<List<LevelInfoListingDto>> getAllLevels() {
+    public ResponseEntity<List<LevelInfoDto>> getAllLevels() {
 
-        return   ResponseEntity.ok(levelRepository.findAll().stream().map(LevelInfoListingDto::fromEntity).collect(Collectors.toList()));
+        return   ResponseEntity.ok(levelRepository.findAll().stream().map(LevelInfoDto::fromEntity).collect(Collectors.toList()));
 
     }
 
@@ -105,6 +105,13 @@ public class LevelServiceImpl implements LevelService {
         }*/
         levelRepository.delete(level);
         return ResponseEntity.ok().build();
+
+    }
+
+    @Override
+    public ResponseEntity<List<LevelDto>> getLevelList() {
+
+        return   ResponseEntity.ok(levelRepository.findAll().stream().map(LevelDto::fromEntity).collect(Collectors.toList()));
 
     }
 }
