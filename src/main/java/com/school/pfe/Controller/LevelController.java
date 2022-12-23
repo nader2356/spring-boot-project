@@ -1,5 +1,6 @@
 package com.school.pfe.Controller;
 
+import com.school.pfe.Dto.LabelValueDto;
 import com.school.pfe.Dto.LevelDto;
 import com.school.pfe.Dto.LevelInfoDto;
 import com.school.pfe.Service.LevelService;
@@ -53,7 +54,7 @@ public class LevelController {
     }
 
     @GetMapping(value = "/getLevelList",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<LevelDto>> getLevelList()
+    public ResponseEntity<List<LabelValueDto>> getLevelList()
     {
         return levelService.getLevelList();
     }

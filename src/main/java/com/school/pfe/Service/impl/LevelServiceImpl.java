@@ -1,5 +1,6 @@
 package com.school.pfe.Service.impl;
 
+import com.school.pfe.Dto.LabelValueDto;
 import com.school.pfe.Dto.LevelDto;
 import com.school.pfe.Dto.LevelInfoDto;
 import com.school.pfe.Exception.EntityNotFoundException;
@@ -21,7 +22,7 @@ import com.school.pfe.Exception.InvalidEntityException;
 @Slf4j
 public class LevelServiceImpl implements LevelService {
 
-    private LevelRepository levelRepository;
+    private final LevelRepository levelRepository;
     //private ClassRepository classRepository;
 
     public LevelServiceImpl(LevelRepository levelRepository) {
@@ -109,9 +110,9 @@ public class LevelServiceImpl implements LevelService {
     }
 
     @Override
-    public ResponseEntity<List<LevelDto>> getLevelList() {
+    public ResponseEntity<List<LabelValueDto>> getLevelList() {
 
-        return   ResponseEntity.ok(levelRepository.findAll().stream().map(LevelDto::fromEntity).collect(Collectors.toList()));
+        return   ResponseEntity.ok(levelRepository.findAll().stream().map(LabelValueDto::fromEntity).collect(Collectors.toList()));
 
     }
 }

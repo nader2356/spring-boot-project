@@ -37,6 +37,9 @@ public class SecurityConfig {
         .authorizeRequests()
         .antMatchers(
             "/**/auth/**",
+                "/**/levels/**",
+                "/**/sections/**",
+                "/**/subjects/**",
             // swagger
             "/v3/api-docs",
             "/v3/api-docs/**",

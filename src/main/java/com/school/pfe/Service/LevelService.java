@@ -1,5 +1,6 @@
 package com.school.pfe.Service;
 
+import com.school.pfe.Dto.LabelValueDto;
 import com.school.pfe.Dto.LevelDto;
 import com.school.pfe.Dto.LevelInfoDto;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,6 @@ public interface LevelService {
 
     ResponseEntity<Void> deleteLevel(Long levelId) ;
 
-    ResponseEntity<List<LevelDto>> getLevelList();
+    ResponseEntity<List<LabelValueDto>> getLevelList();
 
 }
