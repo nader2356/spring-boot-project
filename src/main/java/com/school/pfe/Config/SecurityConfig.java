@@ -18,8 +18,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Arrays;
+import java.util.Collections;
 
 
 @EnableWebSecurity
@@ -93,7 +98,7 @@ public class SecurityConfig {
     // return NoOpPasswordEncoder.getInstance();
     return new BCryptPasswordEncoder();
   }
- /* @Bean
+ @Bean
   public CorsFilter corsFilter() {
     final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     final CorsConfiguration config = new CorsConfiguration();
@@ -105,5 +110,5 @@ public class SecurityConfig {
 
     source.registerCorsConfiguration("/**", config);
     return new CorsFilter(source);
-  }*/
+  }
 }
