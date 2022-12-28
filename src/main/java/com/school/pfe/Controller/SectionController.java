@@ -1,5 +1,6 @@
 package com.school.pfe.Controller;
 
+import com.school.pfe.Dto.LabelValueDto;
 import com.school.pfe.Dto.SectionDto;
 import com.school.pfe.Service.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,11 @@ public class SectionController {
     public SectionDto findByCode(@PathVariable(value = "code") String code) {
         // TODO Auto-generated method stub
         return sectionService.findByCode(code);
+    }
+
+    @GetMapping(value = "/getSections",produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<LabelValueDto> getSections() {
+        // TODO Auto-generated method stub
+        return sectionService.getSections();
     }
 }

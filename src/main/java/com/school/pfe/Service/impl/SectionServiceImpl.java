@@ -1,5 +1,6 @@
 package com.school.pfe.Service.impl;
 
+import com.school.pfe.Dto.LabelValueDto;
 import com.school.pfe.Dto.SectionDto;
 import com.school.pfe.Exception.EntityNotFoundException;
 import com.school.pfe.Exception.ErrorCodes;
@@ -94,5 +95,12 @@ public class SectionServiceImpl implements SectionService {
         }
         sectionRepository.deleteById(id);
 
+    }
+
+    @Override
+    public List<LabelValueDto> getSections() {
+        return sectionRepository.findAll().stream()
+                .map(LabelValueDto::fromEntitySection)
+                .collect(Collectors.toList());
     }
 }
