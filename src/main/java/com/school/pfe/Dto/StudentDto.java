@@ -24,8 +24,7 @@ public class StudentDto {
     private String email;
     @Pattern(regexp="^[0-9]{8}$",message="it should be a number de 8 chiffre")
     private String telNum;
-    @Size(min=2, max=50)
-    private String adress;
+    private AddressDto address;
 
     private List<InscriptionDto> listInscription;
     private List<AbsenceDto> listAbsence;
@@ -44,7 +43,7 @@ public class StudentDto {
                 .dateOfBirth(student.getDateOfBirth())
                 .email(student.getEmail())
                 .telNum(student.getTelNum())
-                .adress(student.getAdress())
+                .address(AddressDto.fromEntity(student.getAddress()))
                 .id(student.getId())
                 .classe(ClassDto.fromEntity(student.getClasse()))
                 .build();
@@ -63,7 +62,7 @@ public class StudentDto {
         student.setDateOfBirth(studentDto.getDateOfBirth());
         student.setEmail(studentDto.getEmail());
         student.setTelNum(studentDto.getTelNum());
-        student.setAdress(studentDto.getAdress());
+        student.setAddress(AddressDto.toEntity(studentDto.getAddress()));
         student.setClasse(ClassDto.toEntity(studentDto.getClasse()));
 
 

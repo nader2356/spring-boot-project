@@ -20,7 +20,8 @@ public class Student extends AbstractEntity{
     private Date dateOfBirth;
     private String email;
     private String telNum;
-    private String adress;
+    @Embedded
+    private Address address;
 
 
     @OneToMany(mappedBy = "student")

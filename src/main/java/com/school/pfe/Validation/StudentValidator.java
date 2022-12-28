@@ -12,36 +12,42 @@ public class StudentValidator {
         List<String> errors = new ArrayList<>();
         if (dto == null) {
 
-            errors.add("please fill in the address");
-            errors.add("please fill in the email");
-            errors.add("please fill in the firstName");
-            errors.add("please fill in the lastName");
-            errors.add("please fill in the phone number ");
+            errors.add("Veuillez renseigner l'adresse d'élève");
+            errors.add("Veuillez renseigner l'email d'élève");
+            errors.add("Veuillez renseigner le prenom d'élève");
+            errors.add("Veuillez renseigner le nom d'élève");
+            errors.add("Veuillez renseigner le numéro de téléphone d'élève");
+            errors.add("Veuillez renseigner la date de naissance d'élève");
+            errors.add("Veuillez sélectionner une classe");
             return errors;
         }
 
 
-        if (!StringUtils.hasLength(dto.getAdress())) {
-
-            errors.add("please fill in the address");
-        }
         if (!StringUtils.hasLength(dto.getEmail())) {
 
-            errors.add("please fill in the email");
+            errors.add("Veuillez renseigner l'email d'élève");
         }
         if (!StringUtils.hasLength(dto.getFirsName())) {
 
-            errors.add("please fill in the firstName");
+            errors.add("Veuillez renseigner le prenom d'élève");
         }
         if (!StringUtils.hasLength(dto.getLastName())) {
 
-            errors.add("please fill in the lastName");
+            errors.add("Veuillez renseigner le nom d'élève");
         }
         if (!StringUtils.hasLength(dto.getTelNum())) {
 
-            errors.add("please fill in the phone number ");
+            errors.add("Veuillez renseigner le numéro de téléphone d'élève");
+        }
+        if (dto.getDateOfBirth() == null) {
+
+            errors.add("Veuillez renseigner la date de naissance d'élève");
+        }
+        if (dto.getClasse() == null) {
+            errors.add("Veuillez sélectionner une classe");
         }
 
+        errors.addAll(AddressValidator.validate(dto.getAddress()));
         return errors;
     }
 }

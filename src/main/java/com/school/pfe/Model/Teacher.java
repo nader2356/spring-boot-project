@@ -18,7 +18,8 @@ import lombok.Data;
 public class Teacher extends AbstractEntity{
 	private String firsName;
 	private String lastName;
-	private String address;
+	@Embedded
+	private Address address;
 	private String email;
 	private String telephone;
 	@OneToMany (mappedBy = "teacher" )
