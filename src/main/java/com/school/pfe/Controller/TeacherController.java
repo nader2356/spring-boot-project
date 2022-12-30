@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.school.pfe.Dto.TeacherValueDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,8 +45,12 @@ public class TeacherController {
 		return teacherService.findAll();
 	}
 	//Get Teacher By Id
+	@GetMapping("/getTeacher/{id}")
+	public TeacherDto getTeacher(@PathVariable Long id) {
+		return teacherService.findById(id);
+	}
 	@GetMapping("/findTeacher/{id}")
-	public TeacherDto findTeacher(@PathVariable Long id) {
+	public TeacherValueDto findTeacher(@PathVariable Long id) {
 		return teacherService.teacherById(id);
 	}
 

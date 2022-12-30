@@ -45,6 +45,8 @@ public class SecurityConfig {
                 "/**/levels/**",
                 "/**/sections/**",
                 "/**/subjects/**",
+                "/**/classes/**",
+                "/**/teacher/**",
             // swagger
             "/v3/api-docs",
             "/v3/api-docs/**",

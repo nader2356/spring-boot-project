@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.school.pfe.Dto.SubjectDto;
+import com.school.pfe.Dto.TeacherValueDto;
 import com.school.pfe.Exception.EntityNotFoundException;
 import com.school.pfe.Exception.ErrorCodes;
 import com.school.pfe.Exception.InvalidEntityException;
@@ -44,7 +45,7 @@ public class TeacherServiceImpl implements TeacherService{
 	}
 
 	@Override
-	public TeacherDto teacherById(Long id) {
+	public TeacherDto findById(Long id) {
 		if (id == null) {
 			log.error("Teacher ID is null");
 			throw new InvalidOperationException("Impossible de trouver un professeur avec un ID NULL", ErrorCodes.TEACHER_ID_IS_NULL);
@@ -52,6 +53,22 @@ public class TeacherServiceImpl implements TeacherService{
 		Optional<Teacher> teacher = teacherRepository.findById(id);
 
 		return Optional.of(TeacherDto.entityToDto(teacher.get())).orElseThrow(() ->
+				new EntityNotFoundException(
+						"Aucun professeur avec l'ID = " + id + " n'a été trouvé dans la BDD",
+						ErrorCodes.TEACHER_NOT_FOUND)
+		);
+	}
+
+
+	@Override
+	public TeacherValueDto teacherById(Long id) {
+		if (id == null) {
+			log.error("Teacher ID is null");
+			throw new InvalidOperationException("Impossible de trouver un professeur avec un ID NULL", ErrorCodes.TEACHER_ID_IS_NULL);
+		}
+		Optional<Teacher> teacher = teacherRepository.findById(id);
+
+		return Optional.of(TeacherValueDto.entityToDto(teacher.get())).orElseThrow(() ->
 				new EntityNotFoundException(
 						"Aucun professeur avec l'ID = " + id + " n'a été trouvé dans la BDD",
 						ErrorCodes.TEACHER_NOT_FOUND)
