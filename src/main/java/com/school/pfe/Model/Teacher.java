@@ -8,11 +8,13 @@ import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 
 @Table(name="Teacher")
 public class Teacher extends AbstractEntity{
@@ -22,6 +24,7 @@ public class Teacher extends AbstractEntity{
 	private Address address;
 	private String email;
 	private String telephone;
+	private String image;
 	@OneToMany (mappedBy = "teacher" )
 	private List<Seance> seances;
 	@ManyToOne

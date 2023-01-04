@@ -4,15 +4,19 @@ import java.util.List;
 
 import com.school.pfe.Dto.TeacherDto;
 import com.school.pfe.Dto.TeacherValueDto;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface TeacherService {
-    TeacherDto save(TeacherDto teacherDto);
+    ResponseEntity<TeacherDto> save(TeacherDto teacherDto);
 
-    TeacherDto findById(Long id);
+    ResponseEntity<TeacherDto> findById(Long id);
 
-    TeacherValueDto teacherById(Long id);
+    ResponseEntity<TeacherValueDto> teacherById(Long id);
 
-    List<TeacherDto> findAll();
+    ResponseEntity<List<TeacherDto>> findAll();
 
     void delete(Long id);
+
+    ResponseEntity<TeacherDto> uploadImageTeacher(Long teacherId, MultipartFile image);
 }
