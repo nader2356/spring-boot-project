@@ -3,7 +3,6 @@ package com.school.pfe.Service.impl;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import com.school.pfe.Dto.TeacherValueDto;
 import com.school.pfe.Exception.EntityNotFoundException;
 import com.school.pfe.Exception.ErrorCodes;
@@ -13,9 +12,9 @@ import com.school.pfe.Service.ImageStorage;
 import com.school.pfe.Validation.TeacherValidation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.school.pfe.Dto.TeacherDto;
 import com.school.pfe.Model.Teacher;
 import com.school.pfe.Repository.TeacherRepository;
@@ -30,8 +29,9 @@ public class TeacherServiceImpl implements TeacherService{
 	@Autowired
 	private TeacherRepository teacherRepository;
 
-	/*@Autowired
-	private ImageStorage imageStorage;*/
+	@Qualifier("TeacherImageStorageImpl")
+	@Autowired
+	private ImageStorage imageStorage;
 
 	
 	@Override
@@ -99,11 +99,11 @@ public class TeacherServiceImpl implements TeacherService{
 	@Override
 	public ResponseEntity<TeacherDto> uploadImageTeacher(Long teacherId, MultipartFile image) {
 		ResponseEntity<TeacherDto> teacherResponse = this.findById(teacherId);
-		//String imageName=imageStorage.store(image);
-		//String fileImageDownloadUrl= ServletUriComponentsBuilder.fromCurrentContextPath().path("api/school/teacher/downloadTeacherImage/").path(imageName).toUriString();
+		String imageName=imageStorage.store(image);
+		String fileImageDownloadUrl= ServletUriComponentsBuilder.fromCurrentContextPath().path("api/school/teacher/downloadTeacherImage/").path(imageName).toUriString();
 		TeacherDto teacherDto = teacherResponse.getBody();
-		//if (teacherDto!=null)
-			//teacherDto.setImage(fileImageDownloadUrl);
+		if (teacherDto!=null)
+			teacherDto.setImage(fileImageDownloadUrl);
 
 		return this.save(teacherDto);
 	}
