@@ -8,13 +8,23 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 //@NoArgsConstructor
 //@AllArgsConstructor
 public class FileStorageProperties {
-    private String uploadImgdir;
+    private String uploadImgTeachersDir;
 
-    public String getUploadImgdir() {
-        return uploadImgdir;
+    private String uploadImgStudentsDir;
+
+    public String getUploadImgTeachersDir() {
+        return uploadImgTeachersDir;
     }
 
-    public void setUploadImgdir(String fileUploadImgdir) {
-        this.uploadImgdir = fileUploadImgdir;
+    public void setUploadImgTeachersDir(String uploadImgTeachersDir) {
+        this.uploadImgTeachersDir = uploadImgTeachersDir;
+    }
+
+    public String getUploadImgStudentsDir() {
+        return uploadImgStudentsDir;
+    }
+
+    public void setUploadImgStudentsDir(String uploadImgStudentsDir) {
+        this.uploadImgStudentsDir = uploadImgStudentsDir;
     }
 }

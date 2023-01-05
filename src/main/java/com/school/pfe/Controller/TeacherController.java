@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import com.school.pfe.Dto.TeacherValueDto;
 import com.school.pfe.Service.ImageStorage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,7 @@ public class TeacherController {
 	TeacherService teacherService;
 
 	@Autowired
+	@Qualifier("TeacherImageStorageImpl")
 	ImageStorage imageStorage;
 
 	//Save new Teacher
@@ -38,7 +40,7 @@ public class TeacherController {
 	}
 	@GetMapping("/downloadTeacherImage/{imageName}")
 	public ResponseEntity<Resource> downloadTeacherImage(@PathVariable String imageName, HttpServletRequest request) {
-		return this.imageStorage.downloadTeacherImage(imageName, request);
+		return this.imageStorage.downloadUserImage(imageName, request);
 	}
 	//Delete Teacher
 	@DeleteMapping("/delete/{id}")

@@ -10,11 +10,11 @@ import java.util.stream.Stream;
 
 public interface ImageStorage {
     String store(MultipartFile file);
-    Resource loadresource(String filename);
+    Resource loadResource(String filename);
 
-    void deleeall();
+    void deleteAll();
     void init();
     Stream<Path> loadFiles();
 
-    ResponseEntity<Resource> downloadTeacherImage(String imageName, HttpServletRequest request);
+    ResponseEntity<Resource> downloadUserImage(String imageName, HttpServletRequest request);
 }

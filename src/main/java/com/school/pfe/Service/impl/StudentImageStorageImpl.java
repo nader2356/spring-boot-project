@@ -3,18 +3,16 @@ package com.school.pfe.Service.impl;
 import com.school.pfe.Config.FileStorageProperties;
 import com.school.pfe.Exception.FileStorageException;
 import com.school.pfe.Service.ImageStorage;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -23,20 +21,20 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.stream.Stream;
+@Service("StudentImageStorageImpl")
+public class StudentImageStorageImpl implements ImageStorage {
 
-@Service
-public class ImageStorageImp implements ImageStorage {
     private final Path imageLocation;
 
-    public ImageStorageImp(FileStorageProperties fileStorageProperties) {
-        this.imageLocation= Paths.get(fileStorageProperties.getUploadImgdir()).toAbsolutePath().normalize();
+    @Autowired
+    public StudentImageStorageImpl(FileStorageProperties fileStorageProperties) {
+        this.imageLocation= Paths.get(fileStorageProperties.getUploadImgStudentsDir()).toAbsolutePath().normalize();
         try {
 
         }catch (Exception e){
             throw new FileStorageException("could not create the directory where the uploaded images will be stored",e);
         }
     }
-
 
     @Override
     public String store(MultipartFile file) {
@@ -53,7 +51,7 @@ public class ImageStorageImp implements ImageStorage {
     }
 
     @Override
-    public Resource loadresource(String filename) {
+    public Resource loadResource(String filename) {
         try {
             Path path = imageLocation.resolve(filename);
             Resource resource = new UrlResource(path.toUri());
@@ -68,7 +66,7 @@ public class ImageStorageImp implements ImageStorage {
     }
 
     @Override
-    public void deleeall() {
+    public void deleteAll() {
         FileSystemUtils.deleteRecursively(imageLocation.toFile());
     }
 
@@ -91,9 +89,8 @@ public class ImageStorageImp implements ImageStorage {
     }
 
     @Override
-    public ResponseEntity<Resource> downloadTeacherImage(String imageName, HttpServletRequest request) {
-
-        Resource resource = this.loadresource(imageName);
+    public ResponseEntity<Resource> downloadUserImage(String imageName, HttpServletRequest request) {
+        Resource resource = this.loadResource(imageName);
         String contentType = null;
         try {
             if (resource!=null){
