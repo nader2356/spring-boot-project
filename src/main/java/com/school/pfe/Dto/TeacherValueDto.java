@@ -26,6 +26,9 @@ public class TeacherValueDto {
     private String email;
     @Pattern(regexp="^[0-9]{8}$",message="it should be a number de 8 chiffre")
     private String telephone;
+
+
+    private String image;
     private SubjectIdDto subject;
     public static Teacher dtoToEntity(TeacherValueDto teacherValueDto) {
         Teacher teacher = new Teacher();
@@ -39,6 +42,7 @@ public class TeacherValueDto {
         teacher.setAddress(AddressDto.toEntity(teacherValueDto.getAddress()));
         teacher.setEmail(teacherValueDto.getEmail());
         teacher.setTelephone(teacherValueDto.getTelephone());
+        teacher.setImage(teacherValueDto.getImage());
         teacher.setSubject(SubjectIdDto.fromDtoToEntity(teacherValueDto.getSubject()));
         return teacher;
     }
@@ -50,6 +54,7 @@ public class TeacherValueDto {
         teacherDto.setAddress(AddressDto.fromEntity(teacher.getAddress()));
         teacherDto.setEmail(teacher.getEmail());
         teacherDto.setTelephone(teacher.getTelephone());
+        teacherDto.setImage(teacher.getImage());
         teacherDto.setSubject(SubjectIdDto.fromEntity(teacher.getSubject()));
 
 
