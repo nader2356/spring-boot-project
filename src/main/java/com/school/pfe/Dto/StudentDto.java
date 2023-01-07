@@ -29,6 +29,7 @@ public class StudentDto {
     private List<InscriptionDto> listInscription;
     private List<AbsenceDto> listAbsence;
     private ClassDto classe;
+    private String image;
 
 
     public static StudentDto fromEntity(Student student) {
@@ -45,6 +46,7 @@ public class StudentDto {
                 .telNum(student.getTelNum())
                 .address(AddressDto.fromEntity(student.getAddress()))
                 .id(student.getId())
+                .image(student.getImage())
                 .classe(ClassDto.fromEntity(student.getClasse()))
                 .build();
     }
@@ -64,6 +66,7 @@ public class StudentDto {
         student.setTelNum(studentDto.getTelNum());
         student.setAddress(AddressDto.toEntity(studentDto.getAddress()));
         student.setClasse(ClassDto.toEntity(studentDto.getClasse()));
+        student.setImage(studentDto.getImage());
 
 
         return student;

@@ -20,6 +20,7 @@ public class Student extends AbstractEntity{
     private Date dateOfBirth;
     private String email;
     private String telNum;
+    private String image;
     @Embedded
     private Address address;
 
